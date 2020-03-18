@@ -23,7 +23,7 @@ fields:
 - type: text
   name: image_caption
   label: image_caption
-- name: author1
+- name: author
   type: select
   default: content/author/author1.md
   config:
