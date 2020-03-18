@@ -23,8 +23,17 @@ fields:
 - type: text
   name: image_caption
   label: image_caption
-- type: text
-  name: author
+- name: author1
+  type: select
+  default: content/author/author1.md
+  config:
+    required: true
+    options: []
+    source:
+      type: pages
+      section: authors
+      file: content/author/author1.md
+      path: 
   label: author
 pages:
 - content/blog/test-blog.md
