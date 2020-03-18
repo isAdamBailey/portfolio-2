@@ -17,6 +17,9 @@ fields:
 - type: datetime
   name: created
   label: created
+  default: now
+  config:
+    required: true
 - type: file
   name: image
   label: image
@@ -25,14 +28,14 @@ fields:
   label: image_caption
 - name: author
   type: select
-  default: content/author/author1.md
+  default: name
   config:
-    required: false
+    required: true
     options:
     - Adam Bailey
     source:
       type: pages
       section: authors
-      file: 
+      file: content/author/author1.md
       path: 
   label: author
