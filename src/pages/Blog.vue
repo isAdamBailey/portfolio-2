@@ -21,7 +21,7 @@
                     >{{ entry.node.category.title }}</span>
                   </li>
                 </ul>
-                <figure>
+                <figure v-if="entry.node.image">
                   <g-image
                     class="block loaded"
                     :alt="entry.node.image_caption"

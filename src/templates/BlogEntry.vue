@@ -16,7 +16,7 @@
             <g-link :to="$page.blog.category.path">{{ $page.blog.category.title }}</g-link>
           </p>
         </div>
-        <figure class="mt-10 md:mt-20">
+        <figure v-if="$page.blog.image" class="mt-10 md:mt-20">
           <g-image :alt="$page.blog.image_caption" :src="$page.blog.image" />
           <figcaption
             class="text-center text-sm italic text-gray-600 mt-4"
@@ -26,7 +26,7 @@
 
       <div class="content post md:px-16">
       
-        <p v-html="$page.blog.excerpt"></p>
+        <p v-if="$page.blog.excerpt" v-html="$page.blog.excerpt"></p>
 
         <div v-html="$page.blog.content"></div>
 
