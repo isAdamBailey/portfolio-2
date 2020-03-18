@@ -28,13 +28,14 @@ fields:
   label: image_caption
 - name: author
   type: select
-  default: name
+  default: author1
   config:
     required: true
     options:
-    - Adam Bailey
+    - author1
+    - author2
     source:
-      type: pages
+      type: simple
       section: authors
       file: content/author/author1.md
       path: 
