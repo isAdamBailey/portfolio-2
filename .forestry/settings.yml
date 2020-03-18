@@ -21,11 +21,8 @@ use_front_matter_path: false
 file_template: ":filename:"
 build:
   preview_output_directory: dist
-  install_dependencies_command: gridsome build
+  install_dependencies_command: npm install
   preview_docker_image: node:10
   mount_path: "/"
   working_dir: "/src"
-  preview_command: gridsome build
-  publish_command: gridsome build
-  output_directory: dist
   instant_preview_command: gridsome develop -p 8080 -h 0.0.0.0
