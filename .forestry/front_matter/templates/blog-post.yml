@@ -40,3 +40,5 @@ fields:
       file: content/author/author1.md
       path: 
   label: author
+pages:
+- content/blog/test.md
