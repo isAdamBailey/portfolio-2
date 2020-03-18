@@ -1,0 +1,22 @@
+---
+label: Author
+hide_body: true
+fields:
+- type: text
+  name: id
+  label: id
+- type: text
+  name: name
+  label: name
+- type: text
+  name: facebook
+  label: facebook
+- type: text
+  name: twitter
+  label: twitter
+- type: text
+  name: linkedin
+  label: linkedin
+- type: file
+  name: image
+  label: image
