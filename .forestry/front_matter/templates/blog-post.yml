@@ -25,18 +25,16 @@ fields:
   label: image_caption
 - name: author
   type: select
-  default: content/author/author1.md
+  default: Adam Bailey
   config:
-    required: true
-    options: []
+    required: false
+    options:
+    - Adam Bailey
     source:
-      type: pages
-      section: authors
-      file: content/author/author1.md
+      type: simple
+      section: 
+      file: 
       path: 
-  label: author
-  showOnly:
-    field: author
-    value: name
+  label: Author
 pages:
 - content/blog/test-blog.md
