@@ -23,8 +23,8 @@ build:
   preview_output_directory: dist
   install_dependencies_command: gridsome build
   preview_docker_image: node:10
-  mount_path: "/srv"
-  working_dir: "/srv/src"
+  mount_path: "/"
+  working_dir: "/src"
   preview_command: gridsome build
   publish_command: gridsome build
   output_directory: dist
