@@ -25,12 +25,12 @@ fields:
   label: image_caption
 - name: author
   type: select
-  default: content/author/author1.md
+  default: name
   config:
     required: true
     options: []
     source:
-      type: pages
+      type: documents
       section: authors
       file: content/author/author1.md
       path: 
