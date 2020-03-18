@@ -1,20 +1,24 @@
 <template>
-  <Layout>
-    <section id="container-centre" class="column centre flex-1">
-      <h1 class="page-title">About</h1>
-      <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolor ipsum voluptatum dicta eveniet commodi molestiae! Suscipit, magnam cumque, illum ab amet ipsum deserunt distinctio est dolore dolor ad ipsa cupiditate minus soluta, possimus accusamus.</p>
-        <p>Ipsa facilis sint, beatae aperiam enim expedita voluptas dolores suscipit reiciendis similique alias, odio repellendus placeat asperiores error laboriosam eligendi accusantium in eos! Dolores labore excepturi doloremque. Rem ipsa quae tempore dignissimos doloribus recusandae quam quibusdam mollitia ex voluptas, repellat dolor et beatae sint nesciunt ad cupiditate cum debitis dolorum earum? Error adipisci optio in ea accusamus incidunt eligendi consequatur, quod impedit dolorem atque quaerat?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolor ipsum voluptatum dicta eveniet commodi molestiae! Suscipit, magnam cumque, illum ab amet ipsum deserunt distinctio est dolore dolor ad ipsa cupiditate minus soluta, possimus accusamus. Ipsa facilis sint, beatae aperiam enim expedita voluptas dolores suscipit reiciendis similique alias, odio repellendus placeat asperiores error laboriosam eligendi accusantium in eos! Dolores labore excepturi doloremque. Rem ipsa quae tempore dignissimos doloribus recusandae quam quibusdam mollitia ex voluptas, repellat dolor et beatae sint nesciunt ad cupiditate cum debitis dolorum earum? Error adipisci optio in ea accusamus incidunt eligendi consequatur, quod impedit dolorem atque quaerat?</p>
-      </div>
-    </section>
-  </Layout>
+    <Layout>
+        <section id="container-centre" class="column centre flex-1">
+            <h1 class="page-title">About</h1>
+            <div class="content">
+                <p>Adam is a Software Developer who lives in Vancouver, Washington. He writes code in PHP and
+                    JavaScript. Adam has been building software professionally since 2015.</p>
+                <p>The allure in creating software comes from the allure of creation! In addition to his interest in
+                    building software, He has a wood shop in his garage, where he makes everything from drumsticks to
+                    toy clocks, and has been a professional musician for 30 years, playing drums for bands of all
+                    styles from Jazz to Metal. Adam is also a father to 2 wonderful boys!</p>
+                <p>You may contact Adam via the links in the footer of this portfolio!</p>
+            </div>
+        </section>
+    </Layout>
 </template>
 
 <script>
-export default {
-  metaInfo: {
-    title: "About"
+  export default {
+    metaInfo: {
+      title: 'About'
+    }
   }
-};
 </script>
