@@ -23,6 +23,8 @@ fields:
 - type: text
   name: linkedin
   label: linkedin
-- type: file
-  name: image
+- name: image
+  type: file
+  config:
+    maxSize: 250
   label: image
