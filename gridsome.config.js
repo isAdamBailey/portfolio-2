@@ -1,6 +1,6 @@
 module.exports = {
   siteName: 'Adam Bailey',
-
+  siteUrl: 'adambailey.io',
   plugins: [
     {
       use: 'gridsome-plugin-tailwindcss',
@@ -43,6 +43,12 @@ module.exports = {
             create: true
           }
         }
+      }
+    },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'UA-161277685-1'
       }
     }
   ],
