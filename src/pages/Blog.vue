@@ -38,6 +38,13 @@
                 </h2>
                 <div class="text-sm text-gray-600 md:flex mb-4">
                   <p class="author">{{ entry.node.author.name }}</p>
+                  <figure v-if="entry.node.author.image">
+                    <g-image
+                      class="rounded-full loaded"
+                      alt="profile picture"
+                      :src="entry.node.author.image"
+                    />
+                  </figure>
                   <p class="hidden md:block px-2">—</p>
                   <time :datetime="entry.node.datetime">{{ entry.node.humanTime }}</time>
                 </div>
@@ -82,6 +89,7 @@ export default {
           datetime : created(format:"ddd MMM DD YYYY hh:mm:ss zZ")
           author {
             name
+            image(width:20)
           }
           category {
             title

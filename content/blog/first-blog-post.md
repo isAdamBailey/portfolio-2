@@ -1,5 +1,5 @@
 ---
-author: adam2
+author: adam
 category: Coding
 created: 2020-03-19T13:39:13.000+00:00
 title: First Blog Post

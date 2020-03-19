@@ -8,6 +8,13 @@
         ></h1>
         <div class="text-sm md:text-base text-gray-600 flex justify-center">
           <p class="author">{{ $page.blog.author.name }}</p>
+          <figure v-if="$page.blog.author.image">
+            <g-image
+              class="rounded-full loaded"
+              alt="profile picture"
+              :src="$page.blog.author.image"
+            />
+          </figure>
           <p class="px-2">—</p>
           <time :datetime="$page.blog.datetime">{{ $page.blog.humanTime }}</time>
           <p class="px-2">—</p>
@@ -80,6 +87,7 @@
       }
       author {
         name
+        image(width:20)
       }
       tags {
         id
