@@ -55,3 +55,4 @@ fields:
   label: image_caption
 pages:
 - content/blog/first-blog-post.md
+- content/blog/test.md
