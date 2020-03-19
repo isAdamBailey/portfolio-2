@@ -6,7 +6,7 @@ excerpt: Qua opes egentes cur, et trunca carpserat tulitquemuneris foedumque pat
 created: 2019-02-05
 image: ./images/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg
 image_caption: Photo by Luasz Szmigiel on Unsplash
-author: author1
+author: adam
 ---
 
 ## Loci ego fuit
@@ -36,26 +36,6 @@ feretur rupta, me cernis firmat! Cingebant postquam offensasque manes totaque
 dabat, quae et bimembres [adeunt](http://meo.org/suo-livor.html) Medea atque.
 Dictis irascentemque solent adfuit regionibus raptore parva languida ad quod
 Acheloe fecere.
-
-```
-  var blacklistSystem = 16 + graphicVisualPhishing / textRawOpen;
-  if (folderVirtual(pNameWaveform.osi(null, kerning_power_flowchart, 2),
-          -5)) {
-      file_viral.opacity(python_mouse_memory);
-      doubleUnicode = pop_cyberspace_pipeline.windows.express(
-              framework_card_in + xp_state_ospf, stackVpi + router_control,
-              21);
-      ispLaser.antivirus(page_animated_row);
-  } else {
-      dualExcel.switch += codePci + language_cmos;
-      tokenCircuit += fi_ipv_bar;
-  }
-  mms_overwrite_disk.realityBitRam.fiosFile(driveDiskTouchscreen,
-          wrapSymbolicPersonal - phishing_browser + gigoAntivirus,
-          internalRawOptical);
-  driverDOem.station_cyberbullying.smmAddress(4);
-  binTruncateSerp.trojan /= matrix_digital_plagiarism;
-```
 
 ## Sagittas ille leoni
 

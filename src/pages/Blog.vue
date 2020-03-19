@@ -60,9 +60,7 @@ export default {
 
 <page-query>
   query {
-    
     allBlog {
-      
       edges {
         node {
           title

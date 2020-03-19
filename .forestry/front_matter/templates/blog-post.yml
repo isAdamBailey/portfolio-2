@@ -4,16 +4,17 @@ hide_body: false
 fields:
 - name: author
   type: select
-  default: author1
+  default: adam
   config:
     required: true
     options:
-    - author1
+    - adam
     - author2
+    - author3
     source:
       type: simple
       section: authors
-      file: content/author/author1.md
+      file: content/author/adam.md
       path: 
   label: author
 - type: text
