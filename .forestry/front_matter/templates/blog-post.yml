@@ -4,12 +4,11 @@ hide_body: false
 fields:
 - name: author
   type: select
-  default: adam
+  default: content/author/adam.md
   config:
     required: true
     options:
     - adam
-    - adam2
     source:
       type: simple
       section: authors
