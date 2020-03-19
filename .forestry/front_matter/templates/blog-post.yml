@@ -9,6 +9,7 @@ fields:
     required: true
     options:
     - adam
+    - adam2
     source:
       type: simple
       section: authors
