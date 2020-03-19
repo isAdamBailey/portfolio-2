@@ -9,8 +9,6 @@ fields:
     required: true
     options:
     - adam
-    - author2
-    - author3
     source:
       type: simple
       section: authors
