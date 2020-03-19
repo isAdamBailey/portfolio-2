@@ -5,7 +5,7 @@ created: 2020-03-19T06:39:13-07:00
 title: First Blog Post
 tags: ''
 excerpt: ''
-image: "./images/qingbao-meng-01_igFr7hd4-unsplash.jpg"
+image: "./../images/qingbao-meng-01_igFr7hd4-unsplash.jpg"
 image_caption: Generic image of green, rolling hills
 
 ---
