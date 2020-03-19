@@ -25,27 +25,43 @@
       </div>
 
       <div class="content post md:px-16">
-      
         <p v-if="$page.blog.excerpt" v-html="$page.blog.excerpt"></p>
-
         <div v-html="$page.blog.content"></div>
-
         <ul class="flex pt-8 border-t border-gray-100">
           <li class="mr-2" v-for="tag in $page.blog.tags" :key="tag.id">
             <g-link
               :to="tag.path"
               class="inline-block border border-pink-300 px-4 py-2 text-pink-500 text-xs font-semibold rounded hover:text-white hover:bg-pink-500 hover:border-pink-500"
-              
             >{{ tag.title}}</g-link>
           </li>
         </ul>
       </div>
 
-      
     </section>
   </Layout>
 </template>
 
+<script>
+  export default {
+    metaInfo() {
+      return {
+        title: this.$page.blog.title,
+        meta: [
+          {
+            key: 'description',
+            name: 'description',
+            content: this.$page.blog.excerpt
+          },
+          {
+            key: 'keywords',
+            name: 'keywords',
+            content: 'web developer, tech blog, adam bailey, software developer'
+          }
+        ]
+      };
+    }
+  };
+</script>
 
 <page-query>
   query($id: ID!) {
@@ -71,18 +87,5 @@
         path
       }
     }
-
-
-    
   }
 </page-query>
-
-<script>
-export default {
-  metaInfo() {
-    return {
-      title: this.$page.blog.title
-    };
-  }
-};
-</script>

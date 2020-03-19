@@ -53,7 +53,19 @@
 <script>
 export default {
   metaInfo: {
-    title: "Blog"
+    title: 'Blog',
+    meta: [
+      {
+        key: 'description',
+        name: 'description',
+        content: 'Adam Bailey\'s Blog Entries'
+      },
+      {
+        key: 'keywords',
+        name: 'keywords',
+        content: 'web developer, tech blog, adam bailey, software developer'
+      }
+    ]
   }
 };
 </script>

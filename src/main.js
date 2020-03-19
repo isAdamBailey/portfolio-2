@@ -14,5 +14,16 @@ export default function (Vue, { router, head, isClient }) {
   // Add attributes to BODY tag
   head.bodyAttrs = { class: 'text-purple-900 leading-normal text-lg' }
 
-
+  head.meta.push(
+    {
+      key: 'keywords',
+      name: 'keywords',
+      content: 'adam bailey, HTML, CSS, JavaScript, Vue, Laravel, web developer, software developer'
+    },
+    {
+      key: 'description',
+      name: 'description',
+      content: 'Software Portfolio site for Adam Bailey.'
+    }
+  )
 }
