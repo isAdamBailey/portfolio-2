@@ -50,6 +50,23 @@ module.exports = {
       options: {
         id: 'UA-161277685-1'
       }
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        cacheTime: 600000, // default
+        exclude: [],
+        config: {
+          '/blog/*': {
+            changefreq: 'weekly',
+            priority: 0.5
+          },
+          '/about': {
+            changefreq: 'monthly',
+            priority: 0.7
+          }
+        }
+      }
     }
   ],
   templates: {
