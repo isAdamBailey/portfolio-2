@@ -53,3 +53,5 @@ fields:
 - type: text
   name: image_caption
   label: image_caption
+pages:
+- content/blog/first-blog-post.md
