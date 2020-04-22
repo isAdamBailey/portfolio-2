@@ -38,7 +38,7 @@
           <li class="mr-2" v-for="tag in $page.blog.tags" :key="tag.id">
             <g-link
               :to="tag.path"
-              class="inline-block border border-pink-300 px-4 py-2 text-pink-500 text-xs font-semibold rounded hover:text-white hover:bg-pink-500 hover:border-pink-500"
+              class="rounded py-1 px-2 text-blue-900 bg-transparent border border-blue-900 hover:border-transparent hover:bg-blue-900 hover:text-blue-300"
             >{{ tag.title}}</g-link>
           </li>
         </ul>

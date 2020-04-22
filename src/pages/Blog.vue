@@ -17,7 +17,7 @@
                 <ul class="absolute bottom-0 left-0 flex p-8 z-10">
                   <li class="mr-2">
                     <span
-                      class="inline-block bg-pink-500 px-4 py-2 text-white text-xs font-bold rounded"
+                      class="inline-block bg-blue-500 px-4 py-2 text-white text-xs font-bold rounded"
                     >{{ entry.node.category.title }}</span>
                   </li>
                 </ul>
@@ -32,7 +32,7 @@
               <div class="p-8">
                 <h2 class="text-2xl mb-6">
                   <g-link
-                    class="block text-purple-900 hover:text-pink-500"
+                    class="block text-blue-500 hover:text-blue-900"
                     :to="entry.node.path"
                   >{{ entry.node.title }}</g-link>
                 </h2>

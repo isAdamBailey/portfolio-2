@@ -11,9 +11,7 @@
 
         <div class="flex justify-center">
           <a href="https://drive.google.com/open?id=1uPXrHJ42H8d4Um-2cXLfA2e7t32GZFI6">
-            <button class="rounded py-4 px-6 text-white font-bold bg-pink-500 hover:bg-pink-600 mb-12">
-              Open My Resume!
-            </button>
+            <button>Open My Resume!</button>
           </a>
         </div>
 
@@ -29,16 +27,12 @@
               <div class="text-gray-900 font-bold text-3xl">{{ project.title }}</div>
               <p class="text-gray-700 text-base">{{ project.description }}</p>
             </div>
-            <div class="justify-center inline-flex pb-4">
+            <div class="justify-around inline-flex pb-4">
               <a :href="project.siteLink">
-                <button class="rounded-l py-2 px-4 w-40 text-white font-bold bg-pink-500 hover:bg-pink-600">
-                  Live Site
-                </button>
+                <button>Live Site</button>
               </a>
               <a :href="project.github">
-                <button class="rounded-r py-2 px-4 w-40 text-white font-bold bg-pink-500 hover:bg-pink-600">
-                  Github
-                </button>
+                <button>Github</button>
               </a>
             </div>
           </div>
