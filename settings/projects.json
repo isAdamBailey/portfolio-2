@@ -2,9 +2,15 @@
   "projects": [
     {
       "title": "This Portfolio",
-      "description": "Yes, that's right, the site you're on right now is an experiment in learning static site generation and GraphQL. It is made with Tailwindcss, Gridsome, VueJs, and uses Forestry.io for a backend CMS.",
+      "description": "Yes, that's right, the site you're on right now is an experiment in learning static site generation and GraphQL. It is made with tailwind.css, Gridsome, Vue.js, and uses Forestry.io for a backend CMS.",
       "siteLink": "/",
       "github": "https://github.com/Owlnofeathers/portfolio-2"
+    },
+    {
+      "title": "Local Covid-19 Aggregate",
+      "description": "I built this tool during the pandemic to easily track coronavirus totals in my state and county. It is built with Vue.js and tailwind.css",
+      "siteLink": "https://covid-19.adambailey.io/",
+      "github": "https://github.com/Owlnofeathers/covid-19"
     },
     {
       "title": "Gif Search Tool",
