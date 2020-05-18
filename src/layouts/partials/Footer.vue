@@ -1,7 +1,7 @@
 <template>
   <div class="footer-wrapper">
     <footer id="footer" class="footer bg-gray-200" role="contentinfo">
-      <div class="footer-inner container m-auto md:flex justify-between items-center px-6 py-10">
+      <div class="footer-inner container m-auto md:flex justify-between items-center px-6 pt-10 pb-20 md:pb-10">
         <p class="text-blue-900 pb-8 md:pb-0">
           ©{{ new Date().getFullYear() }}
           <a href="https://github.com/Owlnofeathers" target="_blank">Adam Bailey</a>
