@@ -171,47 +171,59 @@ To set up our service definitions, we’ll create a new file called `docker-comp
 
 The docker-compose.yml file above creates four services. "app", "npm", "db", and "ngnix", which we'll need to run our laravel application.
 
-
 ## The app service:
 
-* build: This configuration tells Docker Compose to build a local image for the app service, using the specified path (context) and Dockerfile for instructions. The arguments user and uid are injected into the Dockerfile to customize user creation commands at build time.
-* image: The name that will be used for the image being built.
-* container_name: Whatever you want the container to be called.
-* restart: Always restart, unless the service is stopped.
-* working_dir: Sets the default directory for this service as /var/www.
-* volumes: Creates a shared volume that will synchronize contents from the current directory to /var/www inside the container. Notice that this is not your document root, since that will live in the nginx container.
-* networks: Sets up this service to use a network named app.
+build: This configuration tells Docker Compose to build a local image for the app service, using the specified path (context) and Dockerfile for instructions. The arguments user and uid are injected into the Dockerfile to customize user creation commands at build time.
 
+image: The name that will be used for the image being built.
+
+container_name: Whatever you want the container to be called.
+
+restart: Always restart, unless the service is stopped.
+
+working_dir: Sets the default directory for this service as /var/www.
+
+volumes: Creates a shared volume that will synchronize contents from the current directory to /var/www inside the container. Notice that this is not your document root, since that will live in the nginx container.
+
+networks: Sets up this service to use a network named app.
 
 ## The npm service:
 
-* image: Pulls in the official node image from Docker Hub.
-* container_name: Sets up the container name for this service: npm.
+image: Pulls in the official node image from Docker Hub.
 
+container_name: Sets up the container name for this service: npm.
 
 ## The db service:
 
-* image: Defines the Docker image that should be used for this container. In this case, we’re using a MySQL 5.7 image from Docker Hub.
-* container_name: Sets up the container name for this service: db.
-* restart: Always restart this service, unless it is explicitly stopped.
-* environment: Defines environment variables in the new container. We’re using values obtained from the Laravel .env file to set up our MySQL service, which will automatically create a new database and user based on the provided environment variables.
-* volumes: Creates a volume to share a .sql database dump that will be used to initialize the application database. The MySQL image will automatically import .sql files placed in the /docker/sql/docker-entrypoint-initdb.d directory inside the container.
-* networks: Sets up this service to use a network named app.
+image: Defines the Docker image that should be used for this container. In this case, we’re using a MySQL 5.7 image from Docker Hub.
 
+container_name: Sets up the container name for this service: db.
+
+restart: Always restart this service, unless it is explicitly stopped.
+
+environment: Defines environment variables in the new container. We’re using values obtained from the Laravel .env file to set up our MySQL service, which will automatically create a new database and user based on the provided environment variables.
+
+volumes: Creates a volume to share a .sql database dump that will be used to initialize the application database. The MySQL image will automatically import .sql files placed in the /docker/sql/docker-entrypoint-initdb.d directory inside the container.
+
+networks: Sets up this service to use a network named app.
 
 ## The ngnix service:
 
-* image: Defines the Docker image that should be used for this container. In this case, we’re using the Alpine Nginx 1.17 image.
-* container_name: Sets up the container name for this service: ngnix
-* restart: Always restart this service, unless it is explicitly stopped.
-* ports: Sets up a port redirection that will allow external access via port 8000 to the web server running on port 80 inside the container.
-* volumes: Creates **two** shared volumes. The first one will synchronize contents from the current directory to /var/www inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at docker/nginx/app.conf, is copied to the container’s Nginx configuration folder.
-* networks: Sets up this service to use a network named app.
+image: Defines the Docker image that should be used for this container. In this case, we’re using the Alpine Nginx 1.17 image.
 
+container_name: Sets up the container name for this service: ngnix
+
+restart: Always restart this service, unless it is explicitly stopped.
+
+ports: Sets up a port redirection that will allow external access via port 8000 to the web server running on port 80 inside the container.
+
+volumes: Creates **two**shared volumes. The first one will synchronize contents from the current directory to /var/www inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at docker/nginx/app.conf, is copied to the container’s Nginx configuration folder.
+
+networks: Sets up this service to use a network named app.
 
 ## Build The Containers
 
-Build the new containers with `docker-compose build app`. This should take a few minutes as everything has been downloaded into the container.
+Build the new containers with `docker-compose build app` This should take a few minutes as everything has been downloaded into the container.
 
 When the build has completed, start the environment with `docker-compose up -d`
 
