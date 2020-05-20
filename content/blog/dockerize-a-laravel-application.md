@@ -27,7 +27,7 @@ If you don't already have an application you'd like to dockerize, go ahead and i
 
 We'll create a custom docker image for our application using a Dockerfile.
 
-Create a `docker` directory in the root of your application `mkdir docker`, and add Dockerfile to it `touch Dockerfile.`
+Create a "docker" directory in the root of your application `mkdir docker`, and add Dockerfile to it `touch Dockerfile.`
 
 Our dockerfile is using the [official php image](https://hub.docker.com/_/php) from Docker Hub. Copy the code below and paste it in your new Dockerfile.
 
@@ -68,17 +68,17 @@ Our dockerfile is using the [official php image](https://hub.docker.com/_/php) f
 
 Our Dockerfile starts by defining the base image we’re using: `php:7.4-fpm`.
 
-After installing system packages and PHP extensions, we install Composer by copying the `composer` executable from its latest [official image](https://hub.docker.com/_/composer) to our own application image.
+After installing system packages and PHP extensions, we install Composer by copying the composer executable from its latest [official image](https://hub.docker.com/_/composer) to our own application image.
 
-A new system user is then created and set up using the `user` and `uid` arguments. These values will be injected by Docker Compose at build time.
+A new system user is then created and set up using the user and uid arguments. These values will be injected by Docker Compose at build time.
 
-Finally, we set the default working dir as `/var/www` and change to the newly created user. This will make sure you’re connecting as a regular user, and that you’re on the right directory, when running `composer` and `artisan` commands on the application container.
+Finally, we set the default working dir as /var/www and change to the newly created user. This will make sure you’re connecting as a regular user, and that you’re on the right directory, when running composer and artisan commands on the application container.
 
 ## NGNIX Configuration
 
 Docker compose needs to have some information about services we use in our docker container. so let's create a place for our NGNIX configuration to live.
 
-In the `docker` directory we created earlier we need to create a new directory called nginx `mkdir -p docker/nginx` and create a file inside. i called mine app.conf `touch app.conf.`
+In the "docker" directory we created earlier we need to create a new directory called nginx `mkdir -p docker/nginx` and create a file inside. i called mine app.conf `touch app.conf.`
 
 Paste the below contents into that file:
 
@@ -104,7 +104,7 @@ Paste the below contents into that file:
         }
     }
 
-This file will configure Nginx to listen on port `80` and use `index.php` as default index page. It will set the document root to `/var/www/public`, and then configure Nginx to use the `app` service on port `9000` to process `*.php` files.
+This file will configure Nginx to listen on port 80 and use index.php as default index page. It will set the document root to /var/www/public, and then configure Nginx to use the app service on port 9000 to process *.php files.
 
 ## Docker Compose Environment
 
@@ -169,9 +169,10 @@ To set up our service definitions, we’ll create a new file called `docker-comp
         driver: bridge
     
 
-The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, and `ngnix`, which we'll need to run our laravel application.
+The docker-compose.yml file above creates four services. "app", "npm", "db", and "ngnix", which we'll need to run our laravel application.
 
-## The `app` service:
+
+## The app service:
 
 * `build`: This configuration tells Docker Compose to build a local image for the `app` service, using the specified path (context) and Dockerfile for instructions. The arguments `user` and `uid` are injected into the Dockerfile to customize user creation commands at build time.
 * `image`: The name that will be used for the image being built.
@@ -182,13 +183,13 @@ The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, a
 * `networks`: Sets up this service to use a network named `app`.
 
 
-## The `npm` service:
+## The npm service:
 
 * `image`: Pulls in the official node image from Docker Hub.
 * `container_name`: Sets up the container name for this service: `npm`.
 
 
-## The `db` service:
+## The db service:
 
 * `image`: Defines the Docker image that should be used for this container. In this case, we’re using a MySQL 5.7 image from Docker Hub.
 * `container_name`: Sets up the container name for this service: `db`.
@@ -198,7 +199,7 @@ The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, a
 * `networks`: Sets up this service to use a network named `app`.
 
 
-## The `ngnix` service:
+## The ngnix service:
 
 * `image`: Defines the Docker image that should be used for this container. In this case, we’re using the Alpine Nginx 1.17 image.
 * `container_name`: Sets up the container name for this service: `ngnix`
@@ -210,17 +211,17 @@ The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, a
 
 ## Build The Containers
 
-Build the new containers with `docker-compose build app`. This should take a few minutes as everything is downloaded into the container.
+Build the new containers with `docker-compose build app`. This should take a few minutes as everything has been downloaded into the container.
 
-When the build is finished, start the environment with `docker-compose up -d`
+When the build has completed, start the environment with `docker-compose up -d`
 
 To see the status of your active services, use `docker-compose ps`
 
-You can run commands in the docker environment by prepending your commands with `docker-compose exec app` (i.e. `docker-compose exec app php artisan`) or by ssh'ing into the docker shell `docker exec -it app bash` then going to the application root and typing your command.
+You can run commands in the docker environment by prepending your commands with `docker-compose exec app` (i.e. docker-compose exec app php artisan) or by ssh'ing into the docker shell `docker exec -it app bash` then going to the application root and typing your command.
 
 So, you'll need to run composer install `docker-compose exec app composer install`
 
-and you'll need to generate an application key `docker-compose exec app php artisan key:generate`
+And you'll need to generate an application key `docker-compose exec app php artisan key:generate`
 
 Now you can go see your Laravel installation in the browser at [http://localhost:8000/](http://localhost:8000/)
 
@@ -228,7 +229,7 @@ If you end up needing to run NPM, you can install with `docker-compose run --rm 
 
 Run npm dev environment with `docker-compose run --rm npm run dev`
 
-NOTE: if you do not need NPM at all, you can leave the `npm` portion out of `docker-compose.yml`
+NOTE: if you do not need NPM at all, you can leave the npm portion out of docker-compose.yml.
 
 To shut down the containers, run `docker-compose down`
 
