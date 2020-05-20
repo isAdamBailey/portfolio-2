@@ -1,7 +1,7 @@
 ---
 author: adam
 category: Coding
-created: 2020-05-20T05:58:25-07:00
+created: 2020-05-20T12:58:25.000+00:00
 title: Dockerize A Laravel Application
 tags: docker, servers, laravel
 excerpt: What I did to serve a laravel application with docker containers.
@@ -27,7 +27,7 @@ If you don't already have an application you'd like to dockerize, go ahead and i
 
 We'll create a custom docker image for our application using a Dockerfile.
 
-Create a "docker" directory in the root of your application `mkdir docker`, and add Dockerfile to it `touch Dockerfile`
+Create a "docker" directory in the root of your application `mkdir docker` and add Dockerfile to it `touch Dockerfile`
 
 Our dockerfile is using the [official php image](https://hub.docker.com/_/php) from Docker Hub. Copy the code below and paste it in your new Dockerfile.
 
@@ -82,7 +82,6 @@ In the "docker" directory we created earlier we need to create a new directory c
 
 Paste the below contents into that file:
 
-    
     server {
         listen 80;
         index index.php index.html;
@@ -167,7 +166,6 @@ To set up our service definitions, we’ll create a new file called `docker-comp
     networks:
       app:
         driver: bridge
-    
 
 The docker-compose.yml file above creates four services. "app", "npm", "db", and "ngnix", which we'll need to run our laravel application.
 
@@ -217,7 +215,7 @@ restart: Always restart this service, unless it is explicitly stopped.
 
 ports: Sets up a port redirection that will allow external access via port 8000 to the web server running on port 80 inside the container.
 
-volumes: Creates **two**shared volumes. The first one will synchronize contents from the current directory to /var/www inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at docker/nginx/app.conf, is copied to the container’s Nginx configuration folder.
+volumes: Creates **two** shared volumes. The first one will synchronize contents from the current directory to /var/www inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at docker/nginx/app.conf, is copied to the container’s Nginx configuration folder.
 
 networks: Sets up this service to use a network named app.
 
