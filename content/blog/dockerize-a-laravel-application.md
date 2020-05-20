@@ -27,7 +27,7 @@ If you don't already have an application you'd like to dockerize, go ahead and i
 
 We'll create a custom docker image for our application using a Dockerfile.
 
-Create a "docker" directory in the root of your application `mkdir docker`, and add Dockerfile to it `touch Dockerfile.`
+Create a "docker" directory in the root of your application `mkdir docker`, and add Dockerfile to it `touch Dockerfile`
 
 Our dockerfile is using the [official php image](https://hub.docker.com/_/php) from Docker Hub. Copy the code below and paste it in your new Dockerfile.
 
@@ -66,7 +66,7 @@ Our dockerfile is using the [official php image](https://hub.docker.com/_/php) f
     
     USER $user
 
-Our Dockerfile starts by defining the base image we’re using: `php:7.4-fpm`.
+Our Dockerfile starts by defining the base image we’re using: php:7.4-fpm.
 
 After installing system packages and PHP extensions, we install Composer by copying the composer executable from its latest [official image](https://hub.docker.com/_/composer) to our own application image.
 
@@ -78,7 +78,7 @@ Finally, we set the default working dir as /var/www and change to the newly crea
 
 Docker compose needs to have some information about services we use in our docker container. so let's create a place for our NGNIX configuration to live.
 
-In the "docker" directory we created earlier we need to create a new directory called nginx `mkdir -p docker/nginx` and create a file inside. i called mine app.conf `touch app.conf.`
+In the "docker" directory we created earlier we need to create a new directory called nginx `mkdir -p docker/nginx` and create a file inside. i called mine app.conf `touch app.conf`
 
 Paste the below contents into that file:
 
@@ -174,39 +174,39 @@ The docker-compose.yml file above creates four services. "app", "npm", "db", and
 
 ## The app service:
 
-* `build`: This configuration tells Docker Compose to build a local image for the `app` service, using the specified path (context) and Dockerfile for instructions. The arguments `user` and `uid` are injected into the Dockerfile to customize user creation commands at build time.
-* `image`: The name that will be used for the image being built.
-* `container_name`: Whatever you want the container to be called.
-* `restart`: Always restart, unless the service is stopped.
-* `working_dir`: Sets the default directory for this service as `/var/www`.
-* `volumes`: Creates a shared volume that will synchronize contents from the current directory to `/var/www` inside the container. Notice that this is not your document root, since that will live in the `nginx` container.
-* `networks`: Sets up this service to use a network named `app`.
+* build: This configuration tells Docker Compose to build a local image for the app service, using the specified path (context) and Dockerfile for instructions. The arguments user and uid are injected into the Dockerfile to customize user creation commands at build time.
+* image: The name that will be used for the image being built.
+* container_name: Whatever you want the container to be called.
+* restart: Always restart, unless the service is stopped.
+* working_dir: Sets the default directory for this service as /var/www.
+* volumes: Creates a shared volume that will synchronize contents from the current directory to /var/www inside the container. Notice that this is not your document root, since that will live in the nginx container.
+* networks: Sets up this service to use a network named app.
 
 
 ## The npm service:
 
-* `image`: Pulls in the official node image from Docker Hub.
-* `container_name`: Sets up the container name for this service: `npm`.
+* image: Pulls in the official node image from Docker Hub.
+* container_name: Sets up the container name for this service: npm.
 
 
 ## The db service:
 
-* `image`: Defines the Docker image that should be used for this container. In this case, we’re using a MySQL 5.7 image from Docker Hub.
-* `container_name`: Sets up the container name for this service: `db`.
-* `restart`: Always restart this service, unless it is explicitly stopped.
-* `environment`: Defines environment variables in the new container. We’re using values obtained from the Laravel `.env` file to set up our MySQL service, which will automatically create a new database and user based on the provided environment variables.
-* `volumes`: Creates a volume to share a `.sql` database dump that will be used to initialize the application database. The MySQL image will automatically import `.sql` files placed in the `/docker/sql/docker-entrypoint-initdb.d` directory inside the container.
-* `networks`: Sets up this service to use a network named `app`.
+* image: Defines the Docker image that should be used for this container. In this case, we’re using a MySQL 5.7 image from Docker Hub.
+* container_name: Sets up the container name for this service: db.
+* restart: Always restart this service, unless it is explicitly stopped.
+* environment: Defines environment variables in the new container. We’re using values obtained from the Laravel .env file to set up our MySQL service, which will automatically create a new database and user based on the provided environment variables.
+* volumes: Creates a volume to share a .sql database dump that will be used to initialize the application database. The MySQL image will automatically import .sql files placed in the /docker/sql/docker-entrypoint-initdb.d directory inside the container.
+* networks: Sets up this service to use a network named app.
 
 
 ## The ngnix service:
 
-* `image`: Defines the Docker image that should be used for this container. In this case, we’re using the Alpine Nginx 1.17 image.
-* `container_name`: Sets up the container name for this service: `ngnix`
-* `restart`: Always restart this service, unless it is explicitly stopped.
-* `ports`: Sets up a port redirection that will allow external access via port `8000` to the web server running on port `80` inside the container.
-* `volumes`: Creates **two** shared volumes. The first one will synchronize contents from the current directory to `/var/www` inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at `docker/nginx/app.conf`, is copied to the container’s Nginx configuration folder.
-* `networks`: Sets up this service to use a network named `app`.
+* image: Defines the Docker image that should be used for this container. In this case, we’re using the Alpine Nginx 1.17 image.
+* container_name: Sets up the container name for this service: ngnix
+* restart: Always restart this service, unless it is explicitly stopped.
+* ports: Sets up a port redirection that will allow external access via port 8000 to the web server running on port 80 inside the container.
+* volumes: Creates **two** shared volumes. The first one will synchronize contents from the current directory to /var/www inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at docker/nginx/app.conf, is copied to the container’s Nginx configuration folder.
+* networks: Sets up this service to use a network named app.
 
 
 ## Build The Containers
