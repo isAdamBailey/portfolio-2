@@ -181,10 +181,12 @@ The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, a
 * `volumes`: Creates a shared volume that will synchronize contents from the current directory to `/var/www` inside the container. Notice that this is not your document root, since that will live in the `nginx` container.
 * `networks`: Sets up this service to use a network named `app`.
 
+
 ## The `npm` service:
 
 * `image`: Pulls in the official node image from Docker Hub.
 * `container_name`: Sets up the container name for this service: `npm`.
+
 
 ## The `db` service:
 
@@ -195,6 +197,7 @@ The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, a
 * `volumes`: Creates a volume to share a `.sql` database dump that will be used to initialize the application database. The MySQL image will automatically import `.sql` files placed in the `/docker/sql/docker-entrypoint-initdb.d` directory inside the container.
 * `networks`: Sets up this service to use a network named `app`.
 
+
 ## The `ngnix` service:
 
 * `image`: Defines the Docker image that should be used for this container. In this case, we’re using the Alpine Nginx 1.17 image.
@@ -203,6 +206,7 @@ The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, a
 * `ports`: Sets up a port redirection that will allow external access via port `8000` to the web server running on port `80` inside the container.
 * `volumes`: Creates **two** shared volumes. The first one will synchronize contents from the current directory to `/var/www` inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at `docker/nginx/app.conf`, is copied to the container’s Nginx configuration folder.
 * `networks`: Sets up this service to use a network named `app`.
+
 
 ## Build The Containers
 
