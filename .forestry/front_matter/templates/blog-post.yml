@@ -52,4 +52,5 @@ fields:
   name: image_caption
   label: image_caption
 pages:
+- content/blog/dockerize-a-laravel-application.md
 - content/blog/first-blog-post.md
