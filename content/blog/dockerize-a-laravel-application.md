@@ -9,21 +9,21 @@ image: "./../images/qingbao-meng-01_igFr7hd4-unsplash.jpg"
 image_caption: The peaceful tranquility of a docker container.
 
 ---
-# Dockerize A Laravel Application
+## Dockerize A Laravel Application
 
 I know that some of you have installed versions of mysql / php / whatever on your local pc to develop an application, only to need to use a different version for your application at work, or pulling in open source code that yet requires another version of something. Putting the app into docker containers allows me to easily switch between environments.
 
 Creating this blog post is my way of remembering how i did it so i can do it again!
 
-### Install Docker
+## Install Docker
 
 This post assumes you have installed Docker Desktop for your machine, [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop "https://www.docker.com/products/docker-desktop"). If you're running macos, docker compose is already brought in.
 
-### Install Your Laravel Application
+## Install Your Laravel Application
 
 If you don't already have an application you'd like to dockerize, go ahead and install a fresh version of Laravel just like normal. [https://laravel.com/docs/installation](https://laravel.com/docs/installation "https://laravel.com/docs/installation")
 
-### Dockerfile
+## Dockerfile
 
 We'll create a custom docker image for our application using a Dockerfile.
 
@@ -74,7 +74,7 @@ A new system user is then created and set up using the `user` and `uid` argument
 
 Finally, we set the default working dir as `/var/www` and change to the newly created user. This will make sure you’re connecting as a regular user, and that you’re on the right directory, when running `composer` and `artisan` commands on the application container.
 
-### NGNIX Configuration
+## NGNIX Configuration
 
 Docker compose needs to have some information about services we use in our docker container. so let's create a place for our NGNIX configuration to live.
 
@@ -106,7 +106,7 @@ Paste the below contents into that file:
 
 This file will configure Nginx to listen on port `80` and use `index.php` as default index page. It will set the document root to `/var/www/public`, and then configure Nginx to use the `app` service on port `9000` to process `*.php` files.
 
-### Docker Compose Environment
+## Docker Compose Environment
 
 To set up our service definitions, we’ll create a new file called `docker-compose.yml` at the root of the application. It defines your containerized environment, including the base images you will use to build your containers, and how your services will interact.
 
@@ -171,7 +171,7 @@ To set up our service definitions, we’ll create a new file called `docker-comp
 
 The `docker-compose.yml` file above creates four services. `app`, `npm`, `db`, and `ngnix`, which we'll need to run our laravel application.
 
-The `app` service:
+## The `app` service:
 
 * `build`: This configuration tells Docker Compose to build a local image for the `app` service, using the specified path (context) and Dockerfile for instructions. The arguments `user` and `uid` are injected into the Dockerfile to customize user creation commands at build time.
 * `image`: The name that will be used for the image being built.
@@ -181,12 +181,12 @@ The `app` service:
 * `volumes`: Creates a shared volume that will synchronize contents from the current directory to `/var/www` inside the container. Notice that this is not your document root, since that will live in the `nginx` container.
 * `networks`: Sets up this service to use a network named `app`.
 
-The `npm` service:
+## The `npm` service:
 
 * `image`: Pulls in the official node image from Docker Hub.
 * `container_name`: Sets up the container name for this service: `npm`.
 
-The `db` service:
+## The `db` service:
 
 * `image`: Defines the Docker image that should be used for this container. In this case, we’re using a MySQL 5.7 image from Docker Hub.
 * `container_name`: Sets up the container name for this service: `db`.
@@ -195,7 +195,7 @@ The `db` service:
 * `volumes`: Creates a volume to share a `.sql` database dump that will be used to initialize the application database. The MySQL image will automatically import `.sql` files placed in the `/docker/sql/docker-entrypoint-initdb.d` directory inside the container.
 * `networks`: Sets up this service to use a network named `app`.
 
-The `ngnix` service:
+## The `ngnix` service:
 
 * `image`: Defines the Docker image that should be used for this container. In this case, we’re using the Alpine Nginx 1.17 image.
 * `container_name`: Sets up the container name for this service: `ngnix`
@@ -204,7 +204,7 @@ The `ngnix` service:
 * `volumes`: Creates **two** shared volumes. The first one will synchronize contents from the current directory to `/var/www` inside the container. This way, when you make local changes to the application files, they will be quickly reflected in the application being served by Nginx inside the container. The second volume will make sure our Nginx configuration file, located at `docker/nginx/app.conf`, is copied to the container’s Nginx configuration folder.
 * `networks`: Sets up this service to use a network named `app`.
 
-### Build The Containers
+## Build The Containers
 
 Build the new containers with `docker-compose build app`. This should take a few minutes as everything is downloaded into the container.
 
@@ -228,7 +228,7 @@ NOTE: if you do not need NPM at all, you can leave the `npm` portion out of `doc
 
 To shut down the containers, run `docker-compose down`
 
-### Conclusion
+## Conclusion
 
 I hope this successfully serves its purpose as a way for me to remember how to do this in the future, and maybe even help some others as well.
 
