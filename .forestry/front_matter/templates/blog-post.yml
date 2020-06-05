@@ -53,4 +53,4 @@ fields:
   label: image_caption
 pages:
 - content/blog/dockerize-a-laravel-application.md
-- content/blog/first-blog-post.md
+- content/blog/run-consecutive-tests.md

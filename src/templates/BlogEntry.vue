@@ -72,7 +72,7 @@
 
 <page-query>
   query($id: ID!) {
-    blog(id: $id) {
+    blog(id: $id, orderBy: {field: created, direction: ASC}) {
       title
       path
       image(width:1200)

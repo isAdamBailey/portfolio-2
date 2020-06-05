@@ -3,7 +3,7 @@ author: adam
 category: Coding
 created: 2020-05-20T12:58:25.000+00:00
 title: Dockerize A Laravel Application
-tags: docker, servers, laravel
+tags: docker, servers, laravel, php
 excerpt: What I did to serve a laravel application with docker containers.
 image: "./../images/qingbao-meng-01_igFr7hd4-unsplash.jpg"
 image_caption: The peaceful tranquility of a docker container.
