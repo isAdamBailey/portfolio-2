@@ -2,7 +2,7 @@
 title: Generators In PHP
 tags: php
 category: Coding
-excerpt: Qua opes egentes cur, et trunca carpserat tulitquemuneris foedumque patriumque pisces vices!
+excerpt: Get up and running with generators in PHP.
 created: 2020-06-05
 image: ./../images/lukasz-szmigiel-jFCViYFYcus-unsplash.jpg
 image_caption: The spacious, relaxed memory of generators in PHP
