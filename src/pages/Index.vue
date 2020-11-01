@@ -4,9 +4,7 @@
       <h1 class="page-title">Hi! I'm Adam Bailey</h1>
       <div class="content">
         <p>
-          I'm an experienced Software Developer working primarily in
-          <a href="https://laravel.com/">Laravel</a> and
-          <a href="https://vuejs.org/">Vue.js</a>.
+          I'm a Software Developer experienced in <span id="swap-text"></span>
         </p>
 
         <div class="flex justify-center">
@@ -44,9 +42,93 @@
 </template>
 
 <script>
+class SwappableHeading {
+  constructor(element, headings = []) {
+    this.element = element;
+    this.headings = headings;
+    this.current = 1;
+  }
+
+  async swap() {
+    while (true) {
+      await this.wait(1000);
+
+      await this.clear();
+
+      await this.type(this.nextHeading());
+    }
+  }
+
+  async type(text) {
+    while (text.length) {
+      await this.append(text[0]);
+
+      text = text.substring(1);
+    }
+  }
+
+  text() {
+    return this.element.innerHTML;
+  }
+
+  append(text) {
+    this.element.innerHTML += text;
+
+    return this.wait(100);
+  }
+
+  async clear() {
+    while (this.length()) {
+      await this.backspace();
+    }
+  }
+
+  backspace() {
+    this.element.innerHTML = this.text().slice(0, -1);
+
+    return this.wait(100);
+  }
+
+  nextHeading() {
+    let heading = this.headings[this.current - 1];
+
+    this.increment();
+
+    return heading;
+  }
+
+  length() {
+    return this.text().length;
+  }
+
+  increment() {
+    this.current++;
+
+    if (this.current > this.headings.length) {
+      this.current = 1;
+    }
+  }
+
+  async wait(milliseconds) {
+    return new Promise(resolve => {
+      setTimeout(resolve, milliseconds);
+    });
+  }
+}
+
 export default {
   metaInfo: {
     title: "Home"
+  },
+
+  data() {
+    return {
+      headings: ['Laravel.', 'PHP.', 'Javascript.', 'Vue.']
+    };
+  },
+
+  mounted() {
+    new SwappableHeading(document.getElementById('swap-text'), this.headings).swap();
   }
 };
 </script>
@@ -63,3 +145,10 @@ export default {
     }
   }
 </static-query>
+
+<style lang="scss" scoped>
+#swap-text {
+  font-weight: bold;
+  font-size: 2rem;
+}
+</style>
