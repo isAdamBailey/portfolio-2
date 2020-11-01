@@ -2,7 +2,7 @@
  * Buttons
  */
 button {
-  @apply rounded py-4 px-6 text-white font-bold bg-blue-500 mb-12;
+  @apply rounded py-4 px-6 text-white font-bold bg-blue-500;
   transition: 0.25s all ease-out;
 
   &:hover {
