@@ -21,6 +21,6 @@
     "sass-loader": "^8.0.2"
   },
   "devDependencies": {
-    "gridsome-plugin-tailwindcss": "^2.2.32"
+    "gridsome-plugin-tailwindcss": "^2.2.48"
   }
 }
