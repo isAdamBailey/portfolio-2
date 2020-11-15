@@ -9,7 +9,7 @@
             v-for="entry in $page.allBlog.edges"
             :key="entry.node.id"
           >
-            <article class="article-card bg-white overflow-hidden rounded-lg shadow-lg flex-1">
+            <article class="article-card bg-background-card overflow-hidden rounded-lg shadow-lg flex-1">
               <g-link
                 class="featured-image-link block relative overflow-hidden"
                 :to="entry.node.path"

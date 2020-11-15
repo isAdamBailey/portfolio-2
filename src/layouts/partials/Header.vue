@@ -38,7 +38,7 @@ export default {
   props: {
     theme: {
       type: String,
-      default: 'theme-light'
+      required: true
     }
   },
 
@@ -48,7 +48,7 @@ export default {
     },
     toggleTheme() {
       const newTheme = this.theme === 'theme-light' ? 'theme-dark' : 'theme-light'
-      // localStorage.setItem('theme', newTheme)
+      localStorage.setItem('theme', newTheme)
       this.$emit('theme-changed', newTheme)
     }
   }

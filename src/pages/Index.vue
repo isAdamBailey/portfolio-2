@@ -20,10 +20,10 @@
         <div class="posts flex justify-center flex-wrap">
           <div
             v-for="project in $static.metadata.projects"
-            class="flex flex-col justify-between max-w-md rounded overflow-hidden shadow-lg m-4"
+            class="flex flex-col justify-between max-w-md rounded overflow-hidden shadow-lg m-4 bg-background-card"
           >
             <div class="p-4">
-              <div class="text-gray-900 font-bold text-3xl">{{ project.title }}</div>
+              <div class="text-copy-heading font-bold text-3xl">{{ project.title }}</div>
               <p class="text-copy-primary text-base">{{ project.description }}</p>
             </div>
             <div class="justify-around inline-flex pb-4">

@@ -7,11 +7,13 @@ module.exports = {
       background: {
         primary: 'var(--bg-background-primary)',
         secondary: 'var(--bg-background-secondary)',
+        card: 'var(--bg-background-card)',
       },
 
       copy: {
         primary: 'var(--text-copy-primary)',
         secondary: 'var(--text-copy-secondary)',
+        heading: 'var(--text-copy-heading)',
         hover: 'var(--text-copy-hover)',
       },
 

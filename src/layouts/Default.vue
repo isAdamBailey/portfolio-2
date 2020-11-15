@@ -4,7 +4,7 @@
 
     <div id="wrapper" class="wrapper pb-16 md:pb-0 flex flex-col relative min-h-screen">
 
-      <HeaderPartial
+      <Header
           :theme="theme"
           @theme-changed="onChangeTheme"
       />
@@ -13,12 +13,15 @@
         <slot/>
       </main>
 
-      <FooterPartial/>
+      <Footer/>
 
     </div>
 
     <ClientOnly>
-    <ResponsiveNav/>
+      <ResponsiveNav
+          :theme="theme"
+          @theme-changed="onChangeTheme"
+      />
     </ClientOnly>
 
   </div>
@@ -33,21 +36,25 @@ query {
 </static-query>
 
 <script>
-import HeaderPartial from '~/layouts/partials/Header.vue'
-import FooterPartial from '~/layouts/partials/Footer.vue'
+import Header from '~/layouts/partials/Header.vue'
+import Footer from '~/layouts/partials/Footer.vue'
 import ResponsiveNav from '~/layouts/partials/ResponsiveNav.vue'
 
 export default {
   components: {
-    HeaderPartial,
-    FooterPartial,
+    Header,
+    Footer,
     ResponsiveNav
   },
 
   data() {
     return {
-      theme: 'theme-light'
+      theme: ''
     };
+  },
+
+  created() {
+    this.theme = localStorage.getItem('theme') || 'theme-light'
   },
 
   methods: {
