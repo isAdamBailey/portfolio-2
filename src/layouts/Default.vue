@@ -54,7 +54,7 @@ export default {
   },
 
   created() {
-    if (window) {
+    if (process.isClient) {
       this.theme = localStorage.getItem('theme') || 'theme-light'
     }
   },
