@@ -54,7 +54,9 @@ export default {
   },
 
   created() {
-    this.theme = localStorage.getItem('theme') || 'theme-light'
+    if (window) {
+      this.theme = localStorage.getItem('theme') || 'theme-light'
+    }
   },
 
   methods: {
