@@ -15,7 +15,7 @@
         </div>
 
         <div class="page-title mt-12">Projects</div>
-        <p class="text-gray-700">While most of my best work was done in private repositories, Here are some examples
+        <p class="text-copy-primary">While most of my best work was done in private repositories, Here are some examples
           of open source projects ive worked on.</p>
         <div class="posts flex justify-center flex-wrap">
           <div
@@ -24,7 +24,7 @@
           >
             <div class="p-4">
               <div class="text-gray-900 font-bold text-3xl">{{ project.title }}</div>
-              <p class="text-gray-700 text-base">{{ project.description }}</p>
+              <p class="text-copy-primary text-base">{{ project.description }}</p>
             </div>
             <div class="justify-around inline-flex pb-4">
               <a :href="project.siteLink">

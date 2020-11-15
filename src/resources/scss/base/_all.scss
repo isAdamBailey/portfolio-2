@@ -2,3 +2,25 @@
 @import 'utilities';
 @import 'links';
 @import 'typography';
+
+.theme-light {
+  --bg-background-primary: white;
+  --bg-background-secondary: #edf2f7;
+
+  --text-copy-primary: #2a4365;
+  --text-copy-secondary: #4a5568;
+  --text-copy-heading: #4a5568;
+}
+
+.theme-dark {
+  --bg-background-primary: #1a202c;
+  --bg-background-secondary: #2d3748;
+
+  --text-copy-primary: #2a4365;
+  --text-copy-secondary: #4a5568;
+  --text-copy-heading: #4a5568;
+}
+
+.content-wrapper {
+  transition: background-color .25s;
+}

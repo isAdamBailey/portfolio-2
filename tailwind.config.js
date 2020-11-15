@@ -4,6 +4,17 @@ module.exports = {
   separator: ':',
   theme: {
     colors: {
+      background: {
+        primary: 'var(--bg-background-primary)',
+        secondary: 'var(--bg-background-secondary)',
+      },
+
+      copy: {
+        primary: 'var(--text-copy-primary)',
+        secondary: 'var(--text-copy-secondary)',
+        hover: 'var(--text-copy-hover)',
+      },
+
       transparent: 'transparent',
 
       black: '#000',

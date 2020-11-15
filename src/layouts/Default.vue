@@ -1,24 +1,26 @@
 <template>
-  <div>
+  <div class="content-wrapper bg-background-primary text-copy-primary leading-normal text-lg" :class="theme">
     <a class="visually-hidden" href="#main">Skip to content</a>
 
     <div id="wrapper" class="wrapper pb-16 md:pb-0 flex flex-col relative min-h-screen">
 
-      <HeaderPartial/>
-
+      <HeaderPartial
+          :theme="theme"
+          @theme-changed="onChangeTheme"
+      />
 
       <main id="main" class="main inner flex flex-1 flex-col py-10 lg:py-20">
         <slot/>
       </main>
 
       <FooterPartial/>
-        
+
     </div>
 
     <ClientOnly>
     <ResponsiveNav/>
     </ClientOnly>
-    
+
   </div>
 </template>
 
@@ -40,6 +42,18 @@ export default {
     HeaderPartial,
     FooterPartial,
     ResponsiveNav
+  },
+
+  data() {
+    return {
+      theme: 'theme-light'
+    };
+  },
+
+  methods: {
+    onChangeTheme(event) {
+      this.theme = event;
+    }
   }
 }
 </script>
