@@ -18,10 +18,7 @@
     </div>
 
     <ClientOnly>
-      <ResponsiveNav
-          :theme="theme"
-          @theme-changed="onChangeTheme"
-      />
+      <ResponsiveNav/>
     </ClientOnly>
 
   </div>
