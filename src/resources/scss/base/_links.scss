@@ -1,10 +1,13 @@
 a {
-    @apply no-underline text-blue-500;
+    @apply no-underline text-copy-primary;
     transition: 0.25s all ease-out;
-
     &:hover {
-        @apply text-blue-900;
+        @apply text-copy-hover;
     }
+}
+
+.active {
+    @apply text-blue-600;
 }
 
 /* don't hide from screen readers */

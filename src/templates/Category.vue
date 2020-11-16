@@ -1,8 +1,8 @@
 <template>
   <Layout>
-    <section id="container-centre" class="column centre flex-1">
+    <section class="column flex-1">
       <h1
-        class="page-title text-blue-900 text-3xl md:text-center md:text-5xl mb-16 lg:mb-24 lg:text-6xl"
+        class="page-title text-blue-900 md:text-center mb-16 lg:mb-24 lg:text-6xl"
       >Category — {{ $page.category.title }}</h1>
       <div class="posts">
         <article
@@ -26,8 +26,8 @@
 
 <page-query>
   query($id: ID!) {
-    
-    
+
+
     category(id: $id) {
       title
       belongsTo {
@@ -36,7 +36,7 @@
             ... on Blog {
               id
               title
-              path 
+              path
               humanTime : created(format:"Do MMMM YYYY")
               datetime : created(format:"ddd MMM DD YYYY hh:mm:ss zZ")
             }
@@ -44,7 +44,7 @@
         }
       }
     }
-    
+
   }
 </page-query>
 

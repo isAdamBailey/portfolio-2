@@ -2,7 +2,7 @@
   <div class="footer-wrapper">
     <footer id="footer" class="footer bg-background-secondary" role="contentinfo">
       <div class="footer-inner container m-auto md:flex justify-between items-center px-6 pt-10 pb-20 md:pb-10">
-        <p class="text-copy-primary pb-8 md:pb-0">
+        <p class="pb-8 md:pb-0">
           ©{{ new Date().getFullYear() }}
           <a href="https://github.com/Owlnofeathers" target="_blank">Adam Bailey</a>
         </p>
@@ -11,7 +11,7 @@
           <li class="mr-4" v-for="element in $static.metadata.social" :key="element.link">
             <a
               :href="element.link"
-              class="block text-gray-500 hover:text-blue-300"
+              class="block text-copy-primary hover:text-copy-hover"
               :aria-label="element.icon"
               target="_blank"
             >

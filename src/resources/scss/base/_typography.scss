@@ -3,9 +3,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-title {
-	@apply text-5xl;
+	@apply text-5xl text-copy-heading;
 }
-
 
 .content {
 	p {

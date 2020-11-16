@@ -2,24 +2,19 @@ $transition-easing: cubic-bezier(.77, 0, .175, 1);
 $transition-length: 0.5s;
 
 .mobile-nav-toggle {
-
     .mobile-nav-icon-line {
         height: 2px;
     }
 
     &.menu-toggle-active {
-
         .mobile-nav-icon-line {
             @apply m-0 bg-blue-300;
-
             &:nth-child(1) {
                 transform: rotate(45deg) translateY(3px);
             }
-
             &:nth-child(2) {
                 @apply opacity-0;
             }
-
             &:nth-child(3) {
                 transform: rotate(-45deg) translateY(-3px);
             }
@@ -32,10 +27,8 @@ $transition-length: 0.5s;
     transition: transform $transition-length $transition-easing;
     transition-delay: 0.1s;
     will-change: transform;
-
     &.menu-visible {
         transform: translate3d(0, 0, 0);
-
         .item {
             @apply opacity-100;
             transform: translate3d(0, 0, 0);
@@ -48,7 +41,6 @@ $transition-length: 0.5s;
         transition-delay: $transition-length;
 
         @for $i from 0 through 100 {
-
             &:nth-child(#{$i}) {
                 transition-delay: $transition-length * $i / 8 + .5;
             }
