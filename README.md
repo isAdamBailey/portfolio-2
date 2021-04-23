@@ -6,14 +6,10 @@
 * Gridsome
 * GraphQL
 * Tailwindcss
-* SCSS
 * Markdown
-* Admin CMS via [Forestry.io](https://forestry.io/)
+* Admin CMS via [NetlifyCMS](https://www.netlifycms.org/)
 
 ## Local Dev
 * If you don't have the gridsome cli installed, `npm install --global @gridsome/cli`.
 * Install this projects dependencies `npm install`.
 * Start a local development server with `gridsome develop`.
-
-### Credits
-* This portfolio was based on the starter blog initially created by [Joseph Dyer](https://github.com/josephdyer).
